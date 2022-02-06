@@ -8,27 +8,28 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
 )
+
 //日志记录
 type LogRecord struct {
-	JobName string `bson:"job_name"` //任务名称
-	Command string `bson:"command"` //shell命令
-	Err string `bson:"err"` //脚本错误
-	Content string `bson:"content"` //脚本输出
+	JobName   string    `bson:"job_name"` //任务名称
+	Command   string    `bson:"command"`  //shell命令
+	Err       string    `bson:"err"`      //脚本错误
+	Content   string    `bson:"content"`  //脚本输出
 	TimePoint TimePoint `bson:"time_point"`
 }
 type TimePoint struct {
 	StartTime int64 `bson:"start_time"`
-	EndTime int64 `bson:"end_time"`
+	EndTime   int64 `bson:"end_time"`
 }
 
-func main()  {
+func main() {
 	var (
-		client *mongo.Client
+		client     *mongo.Client
 		collection *mongo.Collection
-		err error
+		err        error
 	)
 	// 1 建立连接
-	client,err = mongo.Connect(context.TODO(),options.Client().ApplyURI("mongodb://123.57.194.18:27017"))
+	client, err = mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb://*.*.*.*:27017"))
 	if err != nil {
 		log.Println(err)
 		return
@@ -40,8 +41,8 @@ func main()  {
 
 	//3 find
 	opts := options.Find().SetSkip(0).SetLimit(2)
-	cursor,err := collection.Find(context.TODO(),bson.M{"jobname":"job1"},opts)
-	if err != nil{
+	cursor, err := collection.Find(context.TODO(), bson.M{"jobname": "job1"}, opts)
+	if err != nil {
 		log.Println(err)
 		return
 	}
@@ -53,8 +54,8 @@ func main()  {
 			log.Println(err)
 			return
 		}
-		for k,v := range record {
-			fmt.Println(k,v)
+		for k, v := range record {
+			fmt.Println(k, v)
 		}
 	}
 }

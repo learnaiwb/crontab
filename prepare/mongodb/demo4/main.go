@@ -9,13 +9,13 @@ import (
 	"time"
 )
 
-func main()  {
+func main() {
 	var (
-		client *mongo.Client
+		client     *mongo.Client
 		collection *mongo.Collection
-		err error
+		err        error
 	)
-	client,err = mongo.Connect(context.TODO(),options.Client().ApplyURI("mongodb://123.57.194.18:27017"))
+	client, err = mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb://*.*.*.*:27017"))
 	if err != nil {
 		log.Println(err)
 		return
@@ -34,7 +34,7 @@ func main()  {
 
 	delCond := &DeleteCond{beforeCond: TimeBefore{Before: time.Now().Unix()}}
 
-	res,err := collection.DeleteMany(context.TODO(),delCond)
+	res, err := collection.DeleteMany(context.TODO(), delCond)
 	if err != nil {
 		log.Println(err)
 		return
