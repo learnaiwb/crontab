@@ -1,0 +1,14 @@
+{
+  "etcd集群列表": "配置多个，避免单点",
+  "etcdEndpoints": ["*.*.*.*:2379"],
+  "etcd连接超时": "单位ms",
+  "etcdDialTimeout": 5000,
+
+  "mongodb连接地址":"采用mongodb URI",
+  "mongodbUri": "mongodb://*.*.*.*:27017",
+  "mongodb连接超时时间": "单位毫秒",
+  "mongodbConnectTimeout": 5000,
+  "日志批次大小": "为了减少mongodb网络开销，打包批次发送",
+  "jobLogBatchSize": 100
+
+}

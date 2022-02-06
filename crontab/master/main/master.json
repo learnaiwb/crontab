@@ -1,0 +1,18 @@
+{
+  "API接口服务端端口": "提供增删查改",
+  "apiPort": 8070,
+
+  "API接口读超时": "单位ms",
+  "apiReadTimeout": 5000,
+  "API接口写超时": "单位ms",
+  "apiWriteTimeout": 5000,
+
+  "etcd集群列表": "配置多个，避免单点",
+  "etcdEndpoints": ["*.*.*.*:2379"],
+  "etcd连接超时": "单位ms",
+  "etcdDialTimeout": 5000,
+
+  "*************": "****************",
+  "web页面根目录": "静态页面、前后端分离开发",
+  "staticDir": "./webroot"
+}
