@@ -13,6 +13,7 @@ type Config struct {
 	MongoDBUri string `json:"mongodbUri"`
 	MongoDBConnectTimeout int `json:"mongodbConnectTimeout"`
 	JobLogBatchSize int `json:"jobLogBatchSize"`
+	ExecutorLocation string `json:"executor"`
 }
 
 var G_Config *Config

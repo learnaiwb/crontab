@@ -1,4 +1,7 @@
 {
+
+  "windows or linux": "window下测试可以使用cygwin64,linux下可使用/bin/bash",
+  "executor": "bash.exe",
   "etcd集群列表": "配置多个，避免单点",
   "etcdEndpoints": ["*.*.*.*:2379"],
   "etcd连接超时": "单位ms",

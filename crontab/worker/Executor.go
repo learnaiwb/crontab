@@ -48,7 +48,7 @@ func (executor *Executor) ExecutorJob(info *common.JobExecuteInfo)  {
 		}else {
 			res.StartTime = time.Now()
 			//执行shell命令
-			cmd = exec.CommandContext(info.Ctx,"bash.exe","-c",info.Job.Command)
+			cmd = exec.CommandContext(info.Ctx,G_Config.ExecutorLocation,"-c",info.Job.Command)
 			//执行并捕获输出
 			out,err = cmd.CombinedOutput()
 			//任务执行完毕 把执行结果返回给scheduler ,scheduler会从executingTable中删除记录
